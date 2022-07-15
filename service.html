@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>service</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+</head>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root{
+    --orange:#E0163D;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline:none;
+    border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+
+
+*::selection{
+    background-color:#E163D;
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+section{
+    padding:0 7%;
+    padding-top: 12rem;
+}
+
+.btn{
+    font-size: 2rem;
+    padding:.7rem 3rem;
+    background:var(--orange);
+    color:#fff;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+header{
+    position: fixed;
+    top:0; left: 0;
+    z-index: 1000;
+    background:#fff;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+    width:100%;
+}
+
+header .heading{
+    font-size: 3rem;
+    color:#666;
+    padding:1rem;
+    text-align: center;
+}
+
+header #menu{
+    font-size: 3rem;
+    color:#666;
+    cursor: pointer;
+    margin:1rem;
+    display: none;
+}
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    background:var(--orange);
+    padding:1rem; 
+}
+
+header .navbar ul li{
+    margin:0 1.5rem;
+}
+
+header .navbar ul li a{
+    font-size: 2rem;
+    color:#fff;
+}
+
+header .navbar ul li a:hover{
+    color:#444;
+}
+
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    flex-wrap: wrap;
+}
+
+.home .image{
+    flex:1 1 10rem;
+}
+
+.home .image img{
+    width:80%;
+}
+
+.home .content{
+    flex:1 1 40rem;
+}
+
+.home .content h1{
+    font-size: 5rem;
+    color:#444;
+}
+
+.home .content p{
+    font-size: 1.8rem;
+	align-items: center;
+    justify-content: center;
+    color:#666;
+    padding:1rem 0;
+}
+
+.first-footer{
+    background: #F2F3F4;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+	height: 1vw;
+	width: 100vw;
+	color: #45776d;
+}
+
+.features .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.features .box-container .box{
+    padding:3rem 2rem;
+    background: #fff;
+    outline: var(--outline);
+    outline-offset: -1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.features .box-container .box:hover{
+    outline: var(--outline-hover);
+    outline-offset: 0rem;
+}
+
+.features .box-container .box img{
+    margin:1rem 0;
+    height: 40rem;
+}
+
+.features .box-container .box h3{
+    font-size: 2.5rem;
+    line-height: 1.8;
+    color:var(--black);
+}
+
+.features .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color:var(--light-color);
+    padding:1rem 0;
+}
+
+.about{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+}
+
+.about .image{
+    flex:1 1 20rem;
+}
+
+.about .image img{
+    width:100%;
+}
+
+.about .content{
+    flex:1 1 40rem;
+}
+
+.about .content h1{
+    font-size: 5rem;
+    color:#444;
+}
+
+.about .content p{
+    font-size: 1.6rem;
+    color:#666;
+    padding:2rem 0;
+}
+
+.service{
+    min-height: 100vh;
+    background:#eee;
+}
+
+.service .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+}
+
+.service .box-container .box{
+    background:#fff;
+    margin:2rem;
+    padding:1rem;
+    width:30rem;
+    text-align: center;
+    box-shadow: 0 0 .3rem rgba(0,0,0,.3);
+}
+
+.service .box-container .box i{
+    font-size: 4rem;
+    padding:1rem;
+    color:var(--orange);
+}
+
+.service .box-container .box h3{
+    font-size: 2rem;
+    color:#444;
+}
+
+.service .box-container .box p{
+    font-size: 1.3rem;
+    color:#666;
+    padding:1rem;
+}
+
+.footer{
+    background:#333;
+}
+
+.footer .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    margin:2rem;
+    flex:1 1 30rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color:#fff;
+}
+
+.footer .box-container .box p{
+    font-size: 1.4rem;
+    color:#eee;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a{
+    font-size: 1.8rem;
+    color:#eee;
+    padding:.4rem 0;
+    display: block;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .box-container .box:nth-child(2){
+    text-align: center;
+}
+
+.footer .box-container form{
+    display: flex;
+    align-items: center;
+}
+
+.footer .box-container form input[type="email"]{
+    height:4.1rem;
+    width:100%;
+    font-size: 1.7rem;
+    padding:0 1rem;
+}
+
+.footer .box-container form .btn{
+    margin-top: 0;
+}
+
+.footer .box-container form .btn:hover{
+    color:#333;
+    background:#ccc;
+}
+
+.footer .credit{
+    font-size: 2rem;
+    background:#222;
+    text-align: center;
+    color:#fff;
+    padding:2rem 1rem;
+    font-weight: normal;
+}
+
+.footer .credit a{
+    color:var(--orange);
+}
+
+/* media queries  */
+
+@media (max-width:768px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .home .content{
+        text-align: center;
+    }
+
+    .home .content h1{
+        font-size: 4rem;
+    }
+
+    .about .content h1{
+        font-size: 4rem;
+    }
+
+}
+
+@media (max-width:500px){
+
+    html{
+        font-size: 50%;
+    }
+
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:0 1rem;
+    }
+
+    header #menu{
+        display: block;
+    }
+
+    header .navbar{
+        position: fixed;
+        top:6.2rem; right:-120%;
+        height:100%;
+        width:100%;
+        border-top: .2rem solid rgba(0,0,0,.3);
+    }
+
+    header .navbar ul{
+        height:100%;
+        width:100%;
+        flex-flow: column;
+        background:#fff;
+        padding-bottom: 15rem;
+    }
+
+    header .navbar ul li{
+        text-align: center;
+        width:100%;
+        margin:1rem 0;
+    }
+
+    header .navbar ul li a{
+        font-size: 4rem;
+        color:#333;
+        display: block;
+    }
+
+    header .navbar ul li a:hover{
+        color:var(--orange);
+    }
+
+    .fa-times{
+        transform: rotate(180deg);
+    }
+
+    header .navbar.nav-toggle{
+        right:0;
+    }
+
+    section{
+        padding-top: 5rem;
+    }
+
+    .footer .box-container .box:last-child{
+        text-align: center;
+    }
+
+    .footer .box-container .box:last-child p{
+        font-size: 1.7rem;
+    }
+
+    .footer .box-container .box:last-child form{
+        flex-flow: column;
+    }
+
+    .footer .box-container .box:last-child form .btn{
+        margin-top: 1rem;
+        width:100%;
+    }
+
+}
+
+</style>
+
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <h1 class="heading">services/Products</h1>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="aboutpage.html">about</a></li>
+            <li><a href="service.html">service</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- service section starts  -->
+
+<section class="service">
+
+    <div class="box-container">
+
+        <div class="box">
+            <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-1.fna.fbcdn.net/v/t1.15752-9/286402594_576609244050714_4553992752581847359_n.webp?stp=dst-webp&amp;_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeELKtfAbRJDI1LiuD0bYAspBHa27NZpwgUEdrbs1mnCBbDtMVo38pKi6B5b0xLFHkplXR7_djzVa_jZ7Uj_LWe5&amp;_nc_ohc=Zx8KzBWGl4EAX99WuDi&amp;tn=LgjtG5lEG_8_rnYj&amp;_nc_ht=scontent.fmnl9-1.fna&amp;oh=03_AVL151ZWoaTmtVaImcrGCoiBvoljxsSK9HWMcpnErDWb5w&amp;oe=62F6BB82" height="250px">
+            <h3>6/8 - pc. Chickenjoy Bucket w/ Jolly Spaghetti Family</h3>
+			<p>Jollibee Meal Time Bundle brings you your favorite crispylicious, juicylicious Chickenjoy with the meatiest, cheesiest, sweet-sarap Jolly Spaghetti!</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+		    <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.15752-9/291743899_434152451945602_7149669741472362637_n.webp?stp=dst-webp&amp;_nc_cat=107&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeECa8VNs65YuSE7n2ypbzrrgJSS2AFwcAeAlJLYAXBwB8n1qjiodSnHmwnoP7Xtio4tqGqzyN5cat6HgTx6hNpF&amp;_nc_ohc=qVosZEWqIz0AX-_ozVy&amp;_nc_ht=scontent.fmnl9-2.fna&amp;oh=03_AVLzvXwN625BelJ66zVxvrG4_13vblCJ98MTa-aip32oBg&amp;oe=62F755F8" height="250px">
+            <h3>6/8 - pc. Chickenjoy w/ Palabok Family Pan</h3>
+			<p>6-8pcs. of the Philippines’ best-tasting crispylicious, juicylicious Chickenjoy paired with your classic favorite saucy-sarap Palabok Family Pan with tasty toppings!</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+		    <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-1.fna.fbcdn.net/v/t1.15752-9/292735348_1271207606956051_5598601555309425252_n.webp?stp=dst-webp&amp;_nc_cat=106&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeFjsYwg0Qrp1tW_rLMxnEdzUMicK2w9c09QyJwrbD1zT__gBwmOFvaiexM6ZUR_Q-UL7hRzJoHVm0RiHsK-QLnx&amp;_nc_ohc=IF8NTfd52NEAX8benF4&amp;_nc_ht=scontent.fmnl9-1.fna&amp;oh=03_AVKsgLr6U2L1SPVeHcrDVUt4PPrie5CvNLO0kTvbB8Tfnw&amp;oe=62F84189" height="250px">
+            <h3>6/8 - pc. Chickenjoy Meal Time Bucket</h3>
+			<p>Jollibee Meal Time Bundle brings a bucket of your favorite 6-8pcs. of the Philippines’ best-tasting crispylicious, juicylicious Chickenjoy!</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+		    <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/290697160_1139341356646006_964974085766484981_n.webp?stp=dst-webp&amp;_nc_cat=102&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeHEbjPCCODwEMKZnxUnAO2Lq81sgHV7wy2rzWyAdXvDLcrtfdJtkQyF2bvFlGsRjeM6Z_FIkC6gheJ6ec_VBmih&amp;_nc_ohc=7K7S17gs6EkAX9HedsB&amp;_nc_ht=scontent.fmnl9-3.fna&amp;oh=03_AVI9bKxDKkitBI1X99GRxrgbbhE7JIkSxID9SiBM-1hRTQ&amp;oe=62F5EC09" height="200x">
+            <h3>1 - pc. Chickenjoy Solo</h3>
+			<p>Philippines’ best-tasting crispylicious, juicylicious Chickenjoy that is crispy on the outside, tender and juicy on the inside.</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+		    <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/293443874_607532560956296_1873463291090999820_n.webp?stp=dst-webp&amp;_nc_cat=105&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeGZEx1ImEl4PCOqernOo9pI_33fDHesHjX_fd8Md6weNetdAtF4VwAZQsgUw31hHD6oerYnnt_CA9h3TNf5OGLU&amp;_nc_ohc=rBZSbvaTAJ4AX_NK1DE&amp;tn=LgjtG5lEG_8_rnYj&amp;_nc_ht=scontent.fmnl9-3.fna&amp;oh=03_AVJBW0kzRfrr9Q1F5XLbetzDMuU54pcuUWeED67PEZJ4tg&amp;oe=62F5BD1F" height="200px">
+            <h3>1 - pc. Chicken w/ Spaghetti</h3>
+			<p>Philippines’ best-tasting crispylicious, juicylicious Chickenjoy paired with the cheesiest, meatiest, sweet-sarap Jolly Spaghetti.</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+		    <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.15752-9/291716683_3118079841789499_5235815921392849866_n.webp?stp=dst-webp&amp;_nc_cat=103&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeHUKCHAgs0wD1s0mMtArewQbvPZJNuAOhJu89kk24A6EoKMoHsvmoNdR4WqM7Htp4sgBHLuUGH2Ww_khqX6-rI_&amp;_nc_ohc=aLRGmm4n2FUAX8XU6qx&amp;tn=LgjtG5lEG_8_rnYj&amp;_nc_ht=scontent.fmnl9-2.fna&amp;oh=03_AVJCmQ_vMtl-cpyiPcSmEJEZqJau1DUAKhPW_pGWdOciFw&amp;oe=62F73319" height="200px">
+            <h3>2 - pc. Chickenjoy Solo</h3>
+			<p>Philippines’ best-tasting crispylicious, juicylicious Chickenjoy that is crispy on the outside, tender and juicy on the inside.</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- service section ends -->
+
+
+<div class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3># (02) 8-7000</h3>
+            <p>Save the Jollibee Delivery hotline number -- (02) 8-7000 -- on your mobile phones to order your favorite langhap-sarap meals!</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+			<a href="#">WhatsApp</a>
+        </div>
+
+        <div class="box">
+                <input type="submit" class="btn" value="Order Now">
+            </form>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> Copyright | <a href="#">Rima, Irish Jane C.</a> | This site is designed for educational purpose only. </h1>
+
+</div>
+
+
+
+
+
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+    $('#menu').click(function(){
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
+    });
+
+    $(window).on('load scroll',function(){
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+    });
+
+});
+</script>
+
+</body>
+</html>

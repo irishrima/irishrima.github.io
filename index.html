@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JOLLIBEE</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+
+:root{
+    --orange:#E0163D;
+}
+
+*{
+    font-family: 'Open Sans', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline:none;
+    border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+
+
+
+*::selection{
+    background-color:#E163D;
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+section{
+    padding:0 7%;
+    padding-top: 12rem;
+}
+
+.btn{
+    font-size: 2rem;
+    padding:.7rem 3rem;
+    background:var(--orange);
+    color:#fff;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+header{
+    position: fixed;
+    top:0; left: 0;
+    z-index: 1000;
+    background:#fff;
+    box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);
+    width:100%;
+}
+
+header .heading{
+    font-size: 3rem;
+    color:#666;
+    padding:1rem;
+    text-align: center;
+}
+
+header #menu{
+    font-size: 3rem;
+    color:#666;
+    cursor: pointer;
+    margin:1rem;
+    display: none;
+}
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    background:var(--orange);
+    padding:1rem; 
+}
+
+header .navbar ul li{
+    margin:0 1.5rem;
+}
+
+header .navbar ul li a{
+    font-size: 2rem;
+    color:#fff;
+}
+
+header .navbar ul li a:hover{
+    color:#444;
+}
+
+.home{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #ffffff;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    flex-wrap: wrap;
+}
+
+.home .image{
+    flex:1 1 10rem;
+}
+
+.home .image img{
+    width:80%;
+}
+
+.home .content{
+    flex:1 1 40rem;
+}
+
+.home .content h1{
+    font-size: 5rem;
+    color:#444;
+}
+
+.home .content p{
+    font-size: 1.8rem;
+	align-items: center;
+    justify-content: center;
+    color:#666;
+    padding:1rem 0;
+}
+
+.first-footer{
+    background: #F2F3F4;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+	height: 1vw;
+	width: 100vw;
+	color: #45776d;
+}
+
+.features .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap:1.5rem;
+}
+
+.features .box-container .box{
+    padding:3rem 2rem;
+    background: #fff;
+    outline: var(--outline);
+    outline-offset: -1rem;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+}
+
+.features .box-container .box:hover{
+    outline: var(--outline-hover);
+    outline-offset: 0rem;
+}
+
+.features .box-container .box img{
+    margin:1rem 0;
+    height: 40rem;
+}
+
+.features .box-container .box h3{
+    font-size: 2.5rem;
+    line-height: 1.8;
+    color:var(--black);
+}
+
+.features .box-container .box p{
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color:var(--light-color);
+    padding:1rem 0;
+}
+
+.about{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding-bottom: 2rem;
+}
+
+.about .image{
+    flex:1 1 20rem;
+}
+
+.about .image img{
+    width:100%;
+}
+
+.about .content{
+    flex:1 1 40rem;
+}
+
+.about .content h1{
+    font-size: 5rem;
+    color:#444;
+}
+
+.about .content p{
+    font-size: 1.6rem;
+    color:#666;
+    padding:2rem 0;
+}
+
+.service{
+    min-height: 100vh;
+    background:#eee;
+}
+
+.service .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+}
+
+.service .box-container .box{
+    background:#fff;
+    margin:2rem;
+    padding:1rem;
+    width:30rem;
+    text-align: center;
+    box-shadow: 0 0 .3rem rgba(0,0,0,.3);
+}
+
+.service .box-container .box i{
+    font-size: 4rem;
+    padding:1rem;
+    color:var(--orange);
+}
+
+.service .box-container .box h3{
+    font-size: 2rem;
+    color:#444;
+}
+
+.service .box-container .box p{
+    font-size: 1.3rem;
+    color:#666;
+    padding:1rem;
+}
+
+.footer{
+    background:#333;
+}
+
+.footer .box-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    margin:2rem;
+    flex:1 1 30rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color:#fff;
+}
+
+.footer .box-container .box p{
+    font-size: 1.4rem;
+    color:#eee;
+    padding:1rem 0;
+}
+
+.footer .box-container .box a{
+    font-size: 1.8rem;
+    color:#eee;
+    padding:.4rem 0;
+    display: block;
+}
+
+.footer .box-container .box a:hover{
+    text-decoration: underline;
+}
+
+.footer .box-container .box:nth-child(2){
+    text-align: center;
+}
+
+.footer .box-container form{
+    display: flex;
+    align-items: center;
+}
+
+.footer .box-container form input[type="email"]{
+    height:4.1rem;
+    width:100%;
+    font-size: 1.7rem;
+    padding:0 1rem;
+}
+
+.footer .box-container form .btn{
+    margin-top: 0;
+}
+
+.footer .box-container form .btn:hover{
+    color:#333;
+    background:#ccc;
+}
+
+.footer .credit{
+    font-size: 2rem;
+    background:#222;
+    text-align: center;
+    color:#fff;
+    padding:2rem 1rem;
+    font-weight: normal;
+}
+
+.footer .credit a{
+    color:var(--orange);
+}
+
+/* media queries  */
+
+@media (max-width:768px){
+
+    html{
+        font-size: 55%;
+    }
+
+    .home .content{
+        text-align: center;
+    }
+
+    .home .content h1{
+        font-size: 4rem;
+    }
+
+    .about .content h1{
+        font-size: 4rem;
+    }
+
+}
+
+@media (max-width:500px){
+
+    html{
+        font-size: 50%;
+    }
+
+    header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding:0 1rem;
+    }
+
+    header #menu{
+        display: block;
+    }
+
+    header .navbar{
+        position: fixed;
+        top:6.2rem; right:-120%;
+        height:100%;
+        width:100%;
+        border-top: .2rem solid rgba(0,0,0,.3);
+    }
+
+    header .navbar ul{
+        height:100%;
+        width:100%;
+        flex-flow: column;
+        background:#fff;
+        padding-bottom: 15rem;
+    }
+
+    header .navbar ul li{
+        text-align: center;
+        width:100%;
+        margin:1rem 0;
+    }
+
+    header .navbar ul li a{
+        font-size: 4rem;
+        color:#333;
+        display: block;
+    }
+
+    header .navbar ul li a:hover{
+        color:var(--orange);
+    }
+
+    .fa-times{
+        transform: rotate(180deg);
+    }
+
+    header .navbar.nav-toggle{
+        right:0;
+    }
+
+    section{
+        padding-top: 5rem;
+    }
+
+    .footer .box-container .box:last-child{
+        text-align: center;
+    }
+
+    .footer .box-container .box:last-child p{
+        font-size: 1.7rem;
+    }
+
+    .footer .box-container .box:last-child form{
+        flex-flow: column;
+    }
+
+    .footer .box-container .box:last-child form .btn{
+        margin-top: 1rem;
+        width:100%;
+    }
+
+}
+
+</style>
+
+<body>
+    
+<!-- header section starts  -->
+
+<header>
+
+    <h1 class="heading">JOLLIBEE</h1>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="aboutpage.html">about</a></li>
+            <li><a href="service.html">service</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts   -->
+
+<section class="home">
+
+    <div class="content">
+        <h1>Bringing joy to you!</h1>
+        <p>Have your Jollibee favorites delivered right to your doorstep!</p>
+        <a href="#"><button class="btn">ORDER NOW</button></a>
+	</div>
+
+    <div class="image">
+        <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/256556278_705245193782438_2076228192942618753_n.png?_nc_cat=104&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeGaELFv3aGzTuCqqHBpN2gOvOip-UaD6Nm86Kn5RoPo2TsRtLHir7sNxBthb6_8L_eegU_o-Odi5Ofsh-HhBDiW&amp;_nc_ohc=MDFYbIg2R_EAX_2SB6_&amp;_nc_ht=scontent.fmnl9-3.fna&amp;oh=03_AVKRBxS3FqIR52R4Q-fhjkP0MhN4vdln5VR2M3Rn8fwfJg&amp;oe=62F89949">
+	</div>
+
+</section>
+
+<section class="first-footer">
+    
+	<div class="footer-container"></div>
+	
+</section>
+
+<section class="features" id="features">
+    
+	<h3 style="text-align: center; font-size: 3rem; color:#E0163D;">Exclusive Promos</h3>
+    
+	<div class="box-container">
+        <div class="box">
+            <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/292420272_789728208853692_499235769185534982_n.jpg?_nc_cat=100&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeHMO8961R8sf3Vsq_pWlzyb64eh9K2HXgXrh6H0rYdeBbgTKyeckND7wL0ZsC9mb9wHbzLtXqmipRgtjXtQTMyT&amp;_nc_ohc=VSscDIk_8zEAX8Bcak7&amp;tn=LgjtG5lEG_8_rnYj&amp;_nc_ht=scontent.fmnl9-3.fna&amp;oh=03_AVL78UOEdw42tur8lF8zck2en28OfxvobXCprSE73bTw_Q&amp;oe=62F73C47">
+            <h3>Promo No.1</h3>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+            <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-3.fna.fbcdn.net/v/t1.15752-9/286726960_455684316461430_126423070156920115_n.webp?stp=dst-webp&amp;_nc_cat=105&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeHxxqTly3kFS0b7icYSgX5KwEA-k8vesETAQD6Ty96wRL6FScz8J3XLKoZTvhHuY9S48IDeuAoOjkv4QY8XZ5Pn&amp;_nc_ohc=JAYjqUwTVOsAX8VOf-Y&amp;tn=LgjtG5lEG_8_rnYj&amp;_nc_ht=scontent.fmnl9-3.fna&amp;oh=03_AVLOqwts9dRH0V0qpI8TVSJDkMY34trm98VFFJ0s0wfGYQ&amp;oe=62F6061D">
+            <h3>Promo No.2</h3>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+        <div class="box">
+            <img alt="No description available." class="nskh8ow2 idiwt2bm d2edcug0 dbpd2lw6" src="https://scontent.fmnl9-2.fna.fbcdn.net/v/t1.15752-9/285767125_359140949705908_6914260837895598777_n.jpg?_nc_cat=111&amp;ccb=1-7&amp;_nc_sid=ae9488&amp;_nc_eui2=AeFlJ2gHQZ9NG0rIc6HW9wPzOUpQHltE-Oc5SlAeW0T450Dmin6IfW15iBRX9UgBViLf1VkLiT3xngX3ylhxOZoF&amp;_nc_ohc=lzxnr_ZyJwkAX8d6Quw&amp;_nc_ht=scontent.fmnl9-2.fna&amp;oh=03_AVIdcheC7jWCOyWkh7gRk5jUMgozJ0iN4XySHYYM9Xjfaw&amp;oe=62F6DEAE">
+            <h3>Promo No.3</h3>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+
+    </div>
+
+</section>
+<!-- home section ends -->
+
+<!-- footer section starts  -->
+
+<div class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3># (02) 8-7000</h3>
+            <p>Save the Jollibee Delivery hotline number -- (02) 8-7000 -- on your mobile phones to order your favorite langhap-sarap meals!</p>
+        </div>
+
+        <div class="box">
+            <h3>quick links</h3>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
+			<a href="#">WhatsApp</a>
+        </div>
+
+        <div class="box">
+                <input type="submit" class="btn" value="Order Now">
+            </form>
+        </div>
+
+    </div>
+
+    <h1 class="credit"> Copyright | <a href="#">Rima, Irish Jane C.</a> | This site is designed for educational purpose only. </h1>
+
+</div>
+
+<!-- footer section ends -->
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+$(document).ready(function(){
+
+    $('#menu').click(function(){
+        $(this).toggleClass('fa-times');
+        $('.navbar').toggleClass('nav-toggle');
+    });
+
+    $(window).on('load scroll',function(){
+        $('#menu').removeClass('fa-times');
+        $('.navbar').removeClass('nav-toggle');
+    });
+
+});
+</script>
+
+</body>
+</html>
